@@ -1,0 +1,407 @@
+{
+	"info": {
+		"_postman_id": "78f74c28-ad89-4a8d-b7b2-f9fffcf18e2a",
+		"name": "JIRA_Collection_WeekTwo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24454944"
+	},
+	"item": [
+		{
+			"name": "JIRA_CreateID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"Resp=pm.response.json();\r",
+							"Issue_ID=Resp.id;\r",
+							"//Set the Global variable for created issue for chaining\r",
+							"pm.globals.set(\"G_Issue_ID\",Issue_ID);\r",
+							"pm.globals.set(\"G_Issue_key\",Resp.key);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "jFhFMGNAJf780iGZWD7752D6",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "preethapr91@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n    \"project\":\r\n                {\r\n                    \"key\": \"FIN\"\r\n                },\r\n    \"summary\": \"create issue in Universe project\",\r\n    \"description\": \"Creating of an issue using project keys and issue type names using the REST API\",\r\n    \"issuetype\": {\r\n                    \"name\": \"Bug\"\r\n                }\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://preethaapi91.atlassian.net/rest/api/2/issue/",
+					"protocol": "https",
+					"host": [
+						"preethaapi91",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JIRA_CreateID_forDEL",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "jFhFMGNAJf780iGZWD7752D6",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "preethapr91@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n    \"project\":\r\n                {\r\n                    \"key\": \"FIN\"\r\n                },\r\n    \"summary\": \"create issue in Universe project for Deletion\",\r\n    \"description\": \"Creating an issue for testing delete HTTP method\",\r\n    \"issuetype\": {\r\n                    \"name\": \"Bug\"\r\n                }\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://preethaapi91.atlassian.net/rest/api/2/issue/",
+					"protocol": "https",
+					"host": [
+						"preethaapi91",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JIRA_GetIssue_ID",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "jFhFMGNAJf780iGZWD7752D6",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "preethapr91@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://preethaapi91.atlassian.net/rest/api/2/issue/{{G_Issue_ID}}",
+					"protocol": "https",
+					"host": [
+						"preethaapi91",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{G_Issue_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JIRA_GetAllIssueTypes",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "jFhFMGNAJf780iGZWD7752D6",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "preethapr91@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://preethaapi91.atlassian.net/rest/api/2/issuetype",
+					"protocol": "https",
+					"host": [
+						"preethaapi91",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issuetype"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JIRA_GetIssue_usingTypeID",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "jFhFMGNAJf780iGZWD7752D6",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "preethapr91@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://preethaapi91.atlassian.net/rest/api/2/issuetype/10001",
+					"protocol": "https",
+					"host": [
+						"preethaapi91",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issuetype",
+						"10001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JIRA_GetIssue_JQL",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "jFhFMGNAJf780iGZWD7752D6",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "preethapr91@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://preethaapi91.atlassian.net/rest/api/2/search?jql=project=\"Findthebug\"",
+					"protocol": "https",
+					"host": [
+						"preethaapi91",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"search"
+					],
+					"query": [
+						{
+							"key": "jql",
+							"value": "project=\"Findthebug\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JIRA_GetIssue_key",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "jFhFMGNAJf780iGZWD7752D6",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "preethapr91@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://preethaapi91.atlassian.net/rest/api/2/issue/FIN-2",
+					"protocol": "https",
+					"host": [
+						"preethaapi91",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"FIN-2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JIRA_EditIssue_key",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "jFhFMGNAJf780iGZWD7752D6",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "preethapr91@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n\r\n        \"description\": \"Editing the already created Bug Using REST API Put HTTP method\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://preethaapi91.atlassian.net/rest/api/2/issue/{{G_Issue_key}}",
+					"protocol": "https",
+					"host": [
+						"preethaapi91",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{G_Issue_key}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JIRA_Delete_ID",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "jFhFMGNAJf780iGZWD7752D6",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "preethapr91@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://preethaapi91.atlassian.net/rest/api/2/issue/10016",
+					"protocol": "https",
+					"host": [
+						"preethaapi91",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"10016"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

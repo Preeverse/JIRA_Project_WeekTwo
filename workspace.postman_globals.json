@@ -1,0 +1,33 @@
+{
+	"id": "405b0450-e34b-4aab-8417-4f6e00e614aa",
+	"values": [
+		{
+			"key": "G_sysid",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "uuidnew",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "G_Issue_ID",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "G_Issue_key",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2022-11-30T10:59:17.842Z",
+	"_postman_exported_using": "Postman/10.5.2"
+}
